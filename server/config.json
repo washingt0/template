@@ -1,0 +1,12 @@
+{
+    "application_name": "template",
+    "rw_database": "postgres://postgres:123456@localhost:5432/template",
+    "ro_database": "postgres://postgres:123456@localhost:5432/template-ro",
+    "log_path": "/tmp/log/template/",
+    "http_address": ":4000",
+    "grpc_address": ":5000",
+    "production": false,
+    "secrets": [
+        "qwertyuiop"
+    ]
+}
