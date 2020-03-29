@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+    postgres:
+        image: postgres:12-alpine
+        environment:
+            - POSTGRES_PASSWORD=123456789
+        ports:
+            - 5432:5432
+        volumes:
+            - ./migrations:/docker-entrypoint-initdb.d
+        restart: unless-stopped
+
+    server:
+        depends_on:
+            - postgres
+        volumes:
+            - ./.:/server
+        build:
+            context: .
+            dockerfile: Dockerfile.test
